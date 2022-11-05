@@ -1,12 +1,15 @@
+:root{
+  font-size: 62.5%;
+}
+
 *{
   box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
     
 }
 
 html{
-  font-size: 62.5%;
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
@@ -44,23 +47,7 @@ p, a{
 a{
   text-decoration: none;
 }
-  /* #star-svg{
-    max-width: 60%;
-    stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: dash 3s ease-in-out 1  forwards;
-  } */
 
-  /**infinite alternate */
-
-  /* #star-svg {
-    z-index: 10;
-    position: absolute;
-    top: 100vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-  } */
 #star-svg{
   max-width: 100%;
 }
@@ -86,45 +73,100 @@ a{
 }
 
 section{
-  border-bottom: 1px solid black;
   min-height: 100vh;
   max-width: 100vw;
   scroll-snap-align: start;
   scroll-behavior: smooth;
 }
 
-.laptop-section{
+.hero-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
+
+.hero-section .hero-space{
+  height: 100vh;
+}
+
+.hero-heading{
+  position: absolute;
+  color: black;
+  left: 5vw;
+  bottom: 10vh;
+  background-color: rgb(225, 225, 225);
+  border-radius: 8px;
+  font-size: 1.8rem;
+}
+
+.planet, .planet2, .rocket, .orbit{
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
+.planet{
+  top: 20vh;
+  left: 60vw;
+  animation: rot 60s linear infinite reverse;
+}
+
+.planet2{
+  top: 20vh;
+  left: 20vw;
+  animation: rot 40s linear infinite;
+}
+
+.orbit{
+  height: 280px;
+  width: 280px;
+  border-radius: 50%;
+  position: absolute;
+  margin: auto;
+  top: 15vh;
+  left: 58vw;
+  animation: spin 5s infinite linear;
+}
+
+.rocket{
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  left: -11px;
+  top: 115px;
+}
+
+/* .laptop-section{
+} */
 
 .laptop-container{
   display: flex;
 }
 
-.laptop-container svg{
-  background-color: coral;
-}
-.laptop-child{
-  background-color: lightgreen;
+
+.laptop-child, .delhi-child{
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 3em;
+  
 }
 
-.delhi-section{
+.laptop-child > p, .delhi-child > p{
+  font-size: 1.8rem;
 }
+
+/* .delhi-section{
+} */
 
 .delhi-container{
   display: flex;
   flex-direction: row-reverse;
 }
 
-.delhi-container svg{
-  background-color: coral;
-}
-.delhi-child{
-  background-color: lightgreen;
-}
-
-
 .project-section{
-  background-color: lightgoldenrodyellow;
   position: relative;
   z-index: -2;
 }
@@ -151,7 +193,7 @@ section{
   border-radius: 8px;
 }
 
-.div1, .div2, .div3, .div4 { 
+.div11, .div12, .div13, .div14 { 
   display: flex;
   background-color: white;
   border: 1px solid lightgray;
@@ -184,16 +226,56 @@ section{
   left: 0;
 }
 
-
 .hobby-section{
-  background-color: lightgrey;
+  position: relative;
 }
 
-
-
-.e{
-  background-color: lightgreen;
+.z2{
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: -60vh;
 }
+
+.hobby-container{
+  margin-top: 12vh;
+  margin-right: 8vw;
+  position: relative;
+  float: right;
+  width: 50%;
+  height: 50%;
+  
+}
+
+.parent2 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5em;
+  padding: 0.5em;
+  
+}
+
+.div1 { grid-area: 3 / 2 / 5 / 4; }
+.div2 { grid-area: 1 / 1 / 3 / 4; }
+.div3 { grid-area: 1 / 4 / 3 / 6; }
+.div4 { grid-area: 3 / 4 / 5 / 7; }
+.div5 { grid-area: 3 / 1 / 4 / 2; }
+.div6 { grid-area: 1 / 6 / 2 / 7; }
+.div7 { grid-area: 2 / 6 / 3 / 7; }
+.div8 { grid-area: 4 / 1 / 5 / 2; }
+
+.parent2 > div img{
+  border: 2px solid lightgray;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.parent2 > div:hover{
+  transform: scale(1.1);
+  transition: 600ms;
+}
+
 
 
 
@@ -218,5 +300,17 @@ section{
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes rot{
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes spin{
+  100%{
+      transform: rotate(360deg);
   }
 }
