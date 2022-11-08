@@ -87,21 +87,64 @@ section{
   z-index: 1;
 }
 
-.bg > h1{
-  color: white;
-  font-weight: 300;
-  letter-spacing: 0.4rem;
-  margin-bottom: 15%;
-}
-
-.bg > p {
-  color: white;
-  width: 50%;
+.bg .wrapper{
+  padding-top: 14em;
   text-align: center;
-  margin: 0 auto;
-  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 3.6em;
   font-weight: 300;
   letter-spacing: 0.2rem;
+ 
+}
+
+.bg .wrapper p{
+  width: 50%;
+}
+
+.bg .wrapper p:nth-child(2){
+  margin-bottom: 6em;
+}
+
+.bg .wrapper .mouse {
+height: 80px;
+width: 40px;
+border: 2px solid rgb(255, 255, 255);
+border-radius: 60px;
+position: relative;
+}
+.mouse::before {
+content: '';
+width: 12px;
+height: 12px;
+position: absolute;
+top: 10px;
+left: 50%;
+transform: translateX(-50%);
+background-color: rgb(255, 255, 255);
+border-radius: 50%;
+opacity: 1;
+transition: smooth;
+animation: wheel 3s infinite;
+-webkit-animation: wheel 3s infinite;
+}
+
+
+@keyframes wheel {
+	to {
+		opacity: 0;
+		top: 60px;
+	}
+}
+
+@-webkit-keyframes wheel {
+	to {
+		opacity: 0;
+		top: 60px;
+	}
 }
 
 .hero-section{
